@@ -306,6 +306,6 @@ for i,row in df_anuncios.iterrows():
 #%%
 df = pd.concat(df_imoveis,ignore_index=True)
 today = datetime.datetime.now().strftime("%Y%m%d")
-filename = f'c:/Users/BELOKUROWSR/Desktop/Code/Python/{today}_imoveis_{"_".join(bairros)}.csv'
+filename = f'{os.getcwd()}/{today}_imoveis_{"_".join(bairros)}.csv'
 df.to_csv(filename,encoding='utf-8-sig',index=False)
 #%%
