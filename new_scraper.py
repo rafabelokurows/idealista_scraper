@@ -167,9 +167,9 @@ for bairro in bairros:
         print(url)
         browser.get(url)
         
-        if i == 1:
-            browser.implicitly_wait(10)
-            browser.find_element("xpath", "//*[@id='didomi-notice-agree-button']").click()
+        #if i == 1:
+        #    browser.implicitly_wait(10)
+        #    browser.find_element("xpath", "//*[@id='didomi-notice-agree-button']").click()
         
         html = browser.page_source
         soup = bs(html, 'html.parser')
