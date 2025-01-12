@@ -133,21 +133,22 @@ for bairro in bairros:
         url = f"https://www.idealista.pt/comprar-casas/porto/{bairro}/pagina-{i}"
         print(url)
         browser.get(url)
-        
+        browser.save_screenshot('teste.png')
         #if i == 1:
         #    browser.implicitly_wait(10)
         #    browser.find_element("xpath", "//*[@id='didomi-notice-agree-button']").click()
         
         html = browser.page_source
         soup = bs(html, 'html.parser')
-
+        with open("output1.html", "w") as file:
+          file.write(str(soup))
         part1 = soup.find('main', {'class': "listing-items"})
         print(part1)
         if part1:
           # Extract current page number
           page_number = int(part1.find('div', {"class": "pagination"}).find("li", {"class": "selected"}).text)
         else:
-          print(f'Algo deu errado no bairro {bairro}, parar')
+          print(f'Algo deu errado no bairro {bairro}, parar, Part1 : {part1}')
           break
         print(f'Pagina {i}')
         print(f'Pagina atual: {page_number}')
