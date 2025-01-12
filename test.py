@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup as bs
 
 chromedriver_autoinstaller.install()
 driver = uc.Chrome(headless=True,use_subprocess=False)
-driver.get('https://nowsecure.nl')
+driver.get('https://www.idealista.pt/comprar-casas/porto/ramalde/pagina-1')
 html = driver.page_source
 soup = bs(html, 'html.parser')
 with open("./output.html", "w") as file:
