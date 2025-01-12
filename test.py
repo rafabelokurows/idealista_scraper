@@ -1,5 +1,7 @@
 import undetected_chromedriver as uc
 import chromedriver_autoinstaller
+import requests 
+from bs4 import BeautifulSoup as bs
 
 chromedriver_autoinstaller.install()
 driver = uc.Chrome(headless=True,use_subprocess=False)
