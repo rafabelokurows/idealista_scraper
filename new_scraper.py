@@ -122,7 +122,7 @@ print(f'Bairros: {bairros}')
 #%%
 
 #%%
-browser = uc.Chrome(options = headless=True,use_subprocess=False)
+browser = uc.Chrome(headless=True,use_subprocess=False)
 anuncios = []
 for bairro in bairros:
     print(f'Analisando bairro: {bairro}')
