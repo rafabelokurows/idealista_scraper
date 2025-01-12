@@ -1,26 +1,4 @@
 #%%
-# Fontes:
-# https://github.com/Asier-Garcia/api-idealista-python/blob/main/main.py --chave
-# client_id = 'b9lhgfyr9fkvojhpsl89p3bctizo2fk9'
-# client_secret = '8ud8lnorl5K0'
-#https://github.com/ADS-UB/rentCoach/blob/4a292373f871e3981868fb09c5db4bee3329c466/update_rentdata.py#L16
-#apikey= urllib.parse.quote_plus('kn5fkovg91u9cuzo68pdiiwylgw878o1')
-#secret= urllib.parse.quote_plus('AK8NlpBSDmoV')
-#https://github.com/JoelDela/Master-Data-Science/blob/48d352661ceffbcf5d64dae5a1e5357e98cf3e40/7.%20Data%20engineering/Extra/Master%201/APIs/authidealista.R#L30
-#consumer_key <- "rrry3jb98a7wjs5xbcwsk3u7z2rb9q77"
-#consumer_secret <- "OM5tXahuf36x"
-#https://github.com/xlasj05/Backoffice/blob/3ad0e293355e40d275dfaecde4df66cc1ed40562/Table21.py#L18
-#apikey = '82bzidhyikkdonhpcdr6eoel1beljbgx'  # Replace with your actual API key
-#secret = 'IeO2OmRLxf9Z' 
-#https://github.com/falba3/harmonia/blob/6db29d3d2df07b9becc6760ac4c122343c9b39df/old/3.py#L11
-#apikey = '2zky9zdsmvowg05bx61lsmyvxthkewum'
-#secret = 'HtvQmb7FUAzj'
-# https://github.com/Fred-Costa/ScraperImobiliario
-# https://github.com/Zeimoto
-# https://github.com/marnovo/pydealista/blob/master/api-docs/property-search-api-v3_5.pdf -- documentação da API
-#%%
-
-#%%
 import requests 
 from bs4 import BeautifulSoup as bs
 import pandas as pd
@@ -80,17 +58,6 @@ headers_imoveis = {
     "cookie": """_cb=i0oszBCGTuEDQdmxN; _chartbeat2=.1701789608305.1732570084517.0000000000000001.CJvMQFCk81c1mMCgNwSpbPr_tS6.1; _pprv=eyJjb25zZW50Ijp7IjAiOnsibW9kZSI6Im9wdC1pbiJ9LCIxIjp7Im1vZGUiOiJvcHQtaW4ifSwiMiI6eyJtb2RlIjoib3B0LWluIn0sIjMiOnsibW9kZSI6Im9wdC1pbiJ9LCI0Ijp7Im1vZGUiOiJvcHQtaW4ifSwiNSI6eyJtb2RlIjoib3B0LWluIn0sIjYiOnsibW9kZSI6Im9wdC1pbiJ9LCI3Ijp7Im1vZGUiOiJvcHQtaW4ifX0sInB1cnBvc2VzIjpudWxsLCJfdCI6Im1qbHlmYWgyfG0zeGpodDUyIn0%3D; _pcid=%7B%22browserId%22%3A%22m3xjht4zujoryusy%22%2C%22_t%22%3A%22mjlyfamw%7Cm3xjhtaw%22%7D; _pctx=%7Bu%7DN4IgrgzgpgThIC4B2YA2qA05owMoBcBDfSREQpAeyRCwgEt8oBJAE0RXSwH18yBbAFaoAngDNC-AB4AffgGYpggBZEpIAL5A; _tt_enable_cookie=1; _ttp=p4SMKtf5lmh5zHMawG9zCabu44l.tt.1; _fbp=fb.1.1732570084953.667120816833566162; userUUID=64e41627-6742-408f-bafc-17fddc32ebc4; _hjSessionUser_1676782=eyJpZCI6ImUzZDRjNzExLTA2ZTYtNTczZC1hZDM4LTdmMjc0YzgyZjI1MCIsImNyZWF0ZWQiOjE3MzMxNjI5NTA5MzksImV4aXN0aW5nIjp0cnVlfQ==; _hjHasCachedUserAttributes=true; _last_search=officialZone; _gcl_au=1.1.796023751.1733162970; askToSaveAlertPopUp=true; pbw=%24b%3d16999%3b%24o%3d11100%3b%24sw%3d1920%3b%24sh%3d1200; TestIfCookieP=ok; pid=7491099310567318900; utag_main__prevCompleteClickName=; galleryHasBeenBoosted=true; lcsrd=2025-01-09T13:30:05.7961482Z; SESSION=833e67124e689ac0~4d1459a0-c434-4cd3-a197-be5f76c1b31b; contact4d1459a0-c434-4cd3-a197-be5f76c1b31b="{'maxNumberContactsAllow':10}"; utag_main__sn=7; utag_main_ses_id=1736530611014%3Bexp-session; utag_main__ss=0%3Bexp-session; utag_main__prevTsUrl=https%3A%2F%2Fwww.idealista.pt%2Fcomprar-casas%2Fcampanha%2Fantas-estadio-do-dragao%2F%3Bexp-1736534215434; utag_main__prevTsReferrer=%3Bexp-1736534215434; utag_main__prevTsSource=Direct traffic%3Bexp-1736534215434; utag_main__prevTsCampaign=organicTrafficByTm%3Bexp-1736534215434; utag_main__prevTsProvider=%3Bexp-1736534215434; _clck=k187g7%7C2%7Cfsg%7C0%7C1790; _hjSession_1676782=eyJpZCI6IjE1ZjcwNWNiLWI3NjEtNDcwOC1iNDZkLWVhNjk0MTBkZjFkZiIsImMiOjE3MzY1MzA2MTYyNzYsInMiOjEsInIiOjAsInNiIjowLCJzciI6MCwic2UiOjAsImZzIjowLCJzcCI6MH0=; send4d1459a0-c434-4cd3-a197-be5f76c1b31b="{}"; __rtbh.uid=%7B%22eventType%22%3A%22uid%22%2C%22id%22%3A%22unknown%22%2C%22expiryDate%22%3A%222026-01-10T17%3A40%3A15.352Z%22%7D; __rtbh.lid=%7B%22eventType%22%3A%22lid%22%2C%22id%22%3A%22uGIMVxJjICuHIBwBMBtG%22%2C%22expiryDate%22%3A%222026-01-10T17%3A40%3A15.360Z%22%7D; cto_bundle=7cUkq191YlB4MzY0R1U5djVzZWp1d0prWUlSemFRVFJIYlJtYkUwWjRIZlVTRm9SUUhJSFlXMGhoZmZKU1lITFl4WFI1bTZBb3NmeDU2N2NuRnFSQzR6ZTFPb2tjTXJpSERYNlJpSzNxWmllcEkxanhxWUYyRjY0UlBLMGZCZ2pwbU5tOG5oRDFaS3N4OG4wRWhNYjZtYyUyQkc4ZGNqekRZVFNKMzRjelB3dDE1Q2FueHdtUUpqdzVBclNqZXY5YWdJSkRud3o5VU1TZTJpdTZXYSUyRkdmZW9LRUJ2cGVtRG5haVZKNnAxayUyRk42UzZkSjFubThkMSUyQkdyYU5QUUFzS0oxejdieEdKMXl6cmhEVFFKZlNwdDBhYVFudVk3SGZVdnVNRVFKVFdjNEV3Z3ZSRUh4eUJXcTFEcjhXd0lXY1pPR1kzOCUyRnM; smc="{}"; cookieSearch-1="/comprar-casas/campanha/antas-estadio-do-dragao/:1736532667214"; utag_main__pn=9%3Bexp-session; utag_main__se=26%3Bexp-session; utag_main__st=1736534469114%3Bexp-session; utag_main__prevCompletePageName=005-idealista/portal > portal > viewResults%3Bexp-1736536269373; utag_main__prevLevel2=005-idealista/portal%3Bexp-1736536269373; _uetsid=3a9e4670cdf611efa6c563cda4fabfab; _uetvid=85aad78078ee11eea6244bc7a063d4cb; _clsk=u8vhve%7C1736532670511%7C16%7C0%7Cn.clarity.ms%2Fcollect; datadome=V_OqyYshU_tj2zKaGTr3NCRRf1llObKBmfN0e0FiVMi9pNapSuB6cjbMZLqsV9U5mzRZDY2EgXnfTaFQcF0K8p0_ZZuCul5tjx7RcCRd~VTC5cYLeokpgtVTy1BpSoIs"""
     #"cookie": """_cb=i0oszBCGTuEDQdmxN; _chartbeat2=.1701789608305.1732570084517.0000000000000001.CJvMQFCk81c1mMCgNwSpbPr_tS6.1; _pprv=eyJjb25zZW50Ijp7IjAiOnsibW9kZSI6Im9wdC1pbiJ9LCIxIjp7Im1vZGUiOiJvcHQtaW4ifSwiMiI6eyJtb2RlIjoib3B0LWluIn0sIjMiOnsibW9kZSI6Im9wdC1pbiJ9LCI0Ijp7Im1vZGUiOiJvcHQtaW4ifSwiNSI6eyJtb2RlIjoib3B0LWluIn0sIjYiOnsibW9kZSI6Im9wdC1pbiJ9LCI3Ijp7Im1vZGUiOiJvcHQtaW4ifX0sInB1cnBvc2VzIjpudWxsLCJfdCI6Im1qbHlmYWgyfG0zeGpodDUyIn0%3D; _pcid=%7B%22browserId%22%3A%22m3xjht4zujoryusy%22%2C%22_t%22%3A%22mjlyfamw%7Cm3xjhtaw%22%7D; _pctx=%7Bu%7DN4IgrgzgpgThIC4B2YA2qA05owMoBcBDfSREQpAeyRCwgEt8oBJAE0RXSwH18yBbAFaoAngDNC-AB4AffgGYpggBZEpIAL5A; _tt_enable_cookie=1; _ttp=p4SMKtf5lmh5zHMawG9zCabu44l.tt.1; _fbp=fb.1.1732570084953.667120816833566162; userUUID=64e41627-6742-408f-bafc-17fddc32ebc4; _hjSessionUser_1676782=eyJpZCI6ImUzZDRjNzExLTA2ZTYtNTczZC1hZDM4LTdmMjc0YzgyZjI1MCIsImNyZWF0ZWQiOjE3MzMxNjI5NTA5MzksImV4aXN0aW5nIjp0cnVlfQ==; _hjHasCachedUserAttributes=true; _last_search=officialZone; _gcl_au=1.1.796023751.1733162970; askToSaveAlertPopUp=true; pbw=%24b%3d16999%3b%24o%3d11100%3b%24sw%3d1920%3b%24sh%3d1200; TestIfCookieP=ok; pid=7491099310567318900; utag_main__prevCompleteClickName=; galleryHasBeenBoosted=true; lcsrd=2025-01-09T13:30:05.7961482Z; SESSION=833e67124e689ac0~4d1459a0-c434-4cd3-a197-be5f76c1b31b; contact4d1459a0-c434-4cd3-a197-be5f76c1b31b="{'maxNumberContactsAllow':10}"; utag_main__sn=7; utag_main_ses_id=1736530611014%3Bexp-session; utag_main__ss=0%3Bexp-session; utag_main__prevTsUrl=https%3A%2F%2Fwww.idealista.pt%2Fcomprar-casas%2Fcampanha%2Fantas-estadio-do-dragao%2F%3Bexp-1736534215434; utag_main__prevTsReferrer=%3Bexp-1736534215434; utag_main__prevTsSource=Direct traffic%3Bexp-1736534215434; utag_main__prevTsCampaign=organicTrafficByTm%3Bexp-1736534215434; utag_main__prevTsProvider=%3Bexp-1736534215434; _clck=k187g7%7C2%7Cfsg%7C0%7C1790; _hjSession_1676782=eyJpZCI6IjE1ZjcwNWNiLWI3NjEtNDcwOC1iNDZkLWVhNjk0MTBkZjFkZiIsImMiOjE3MzY1MzA2MTYyNzYsInMiOjEsInIiOjAsInNiIjowLCJzciI6MCwic2UiOjAsImZzIjowLCJzcCI6MH0=; send4d1459a0-c434-4cd3-a197-be5f76c1b31b="{}"; smc="{}"; cookieSearch-1="/comprar-casas/campanha/antas-estadio-do-dragao/:1736532667214"; utag_main__pn=10%3Bexp-session; utag_main__se=28%3Bexp-session; utag_main__st=1736534860597%3Bexp-session; utag_main__prevCompletePageName=005-idealista/portal > portal > viewAdDetail%3Bexp-1736536660615; utag_main__prevLevel2=005-idealista/portal%3Bexp-1736536660615; __rtbh.uid=%7B%22eventType%22%3A%22uid%22%2C%22id%22%3A%22unknown%22%2C%22expiryDate%22%3A%222026-01-10T18%3A17%3A40.776Z%22%7D; __rtbh.lid=%7B%22eventType%22%3A%22lid%22%2C%22id%22%3A%22uGIMVxJjICuHIBwBMBtG%22%2C%22expiryDate%22%3A%222026-01-10T18%3A17%3A40.779Z%22%7D; _uetsid=3a9e4670cdf611efa6c563cda4fabfab; _uetvid=85aad78078ee11eea6244bc7a063d4cb; cto_bundle=a2TvaV91YlB4MzY0R1U5djVzZWp1d0prWUlUdjQ2R1BQdzdDUSUyRkEzRjY4NjRTdmxOa2Q1VEJRVkNXNEhHakRYVFdGVnJ5RzZxeDV3aFJ0V1BFS3JtTmclMkI4b1lYYThOZFp5NGFWQ3c4c2s3VWxEYnJnTGYlMkZYM0hxd3BoNUJESHpNd0VlQWpiaGhQUWVPaHRXU2RHYjVRTTB0bGVTZ25vSVhvY3dVRXh6ZUolMkJaNndLcU5ZQmZPRlNueXhnVEpDJTJCVHpEbmJSeCUyRk51a1RRSU02M0g1ZmRNeEElMkJNbVUlMkJSYUF4akR2ZHdiZUgySVZzdW9ZM3FkRXE1cVk5eUwxVGZPUXgxZSUyRmE4eWZhZzNJOTFNb3RxYWVTZk1mJTJGb2tWN3BEZWhaakJ5NGZpalpNYnJYVzhDMnVQWThST0JIdU5WazZZWDJOcHZo; datadome=6kMmBoqgnaDy8H2Q1PMx~oACZ1_DPrdIL_PMsYdrff4xTwjVscUuZ_fMX2JkW3Dw3a2sN8R1IEBWBFjZjjrBaGwapTniB4nbx2SXEOhcUgJwt26wE2yug_tnazX5Hj8B; _clsk=u8vhve%7C1736534159807%7C18%7C0%7Cn.clarity.ms%2Fcollect"""
 }
-# url = 'https://www.idealista.com/venta-viviendas/sevilla/los-remedios/asuncion-adolfo-suarez/'
-# browser.get(url)
-# browser.implicitly_wait(10)
-# browser.find_element("xpath", "//*[@id='didomi-notice-agree-button']").click()
-# html=browser.page_source
-# soup = bs(html,'html.parser')
-# soup
-# listings = soup.find_all("a",{"class":"item-link"})
-# for listing in listings:
-#     print(listing.text)
-#     print(listing.get('href'))
 
 url_bairros = ["paranhos","bonfim","ramalde","campanha",
                "monte-dos-burgos-carvalhido",
@@ -178,7 +145,7 @@ for bairro in bairros:
         print(part1)
         if part1:
           # Extract current page number
-          page_number = int(.find('div', {"class": "pagination"}).find("li", {"class": "selected"}).text)
+          page_number = int(part1.find('div', {"class": "pagination"}).find("li", {"class": "selected"}).text)
         else:
           print(f'Algo deu errado no bairro {bairro}, parar')
           break
