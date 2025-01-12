@@ -133,14 +133,14 @@ for bairro in bairros:
         url = f"https://www.idealista.pt/comprar-casas/porto/{bairro}/pagina-{i}"
         print(url)
         browser.get(url)
-        browser.save_screenshot('teste.png')
+        browser.save_screenshot('./teste.png')
         #if i == 1:
         #    browser.implicitly_wait(10)
         #    browser.find_element("xpath", "//*[@id='didomi-notice-agree-button']").click()
         
         html = browser.page_source
         soup = bs(html, 'html.parser')
-        with open("output1.html", "w") as file:
+        with open("./output1.html", "w") as file:
           file.write(str(soup))
         part1 = soup.find('main', {'class': "listing-items"})
         print(part1)
