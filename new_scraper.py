@@ -122,8 +122,7 @@ print(f'Bairros: {bairros}')
 #%%
 
 #%%
-browser = uc.Chrome(options = chrome_options)
-#headless=True,use_subprocess=False
+browser = uc.Chrome(options = headless=True,use_subprocess=False)
 anuncios = []
 for bairro in bairros:
     print(f'Analisando bairro: {bairro}')
@@ -142,6 +141,8 @@ for bairro in bairros:
         soup = bs(html, 'html.parser')
         with open("./output1.html", "w") as file:
           file.write(str(soup))
+        with open("./output1.html", "w") as file:
+          file.write(soup)
         part1 = soup.find('main', {'class': "listing-items"})
         print(part1)
         if part1:
