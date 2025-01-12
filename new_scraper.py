@@ -173,12 +173,15 @@ for bairro in bairros:
         
         html = browser.page_source
         soup = bs(html, 'html.parser')
-        
-        # Extract current page number
-        page_number = int(soup.find('main', {'class': "listing-items"})
-                        .find('div', {"class": "pagination"})
-                        .find("li", {"class": "selected"}).text)
-        
+
+        part1 = soup.find('main', {'class': "listing-items"})
+        print(part1)
+        if part1:
+          # Extract current page number
+          page_number = int(.find('div', {"class": "pagination"}).find("li", {"class": "selected"}).text)
+        else:
+          print(f'Algo deu errado no bairro {bairro}, parar')
+          break
         print(f'Pagina {i}')
         print(f'Pagina atual: {page_number}')
         
