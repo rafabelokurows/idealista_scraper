@@ -79,11 +79,11 @@ if dia_semana == 'Friday':
 elif dia_semana == 'Saturday':
     bairros = ["bonfim","campanha"]
 elif dia_semana == 'Sunday':
-    bairro = ["ramalde"]
+    bairros = ["ramalde"]
 elif dia_semana == 'Monday':
-    bairro = ["cedofeita-santo-ildefonso-se-miragaia-sao-nicolau-vitoria"] 
+    bairros = ["cedofeita-santo-ildefonso-se-miragaia-sao-nicolau-vitoria"] 
 elif dia_semana == 'Tuesday':
-    bairro = ["monte-dos-burgos-carvalhido"]
+    bairros = ["monte-dos-burgos-carvalhido"]
 elif dia_semana == 'Wednesday':
     bairros = ["aldoar-foz-do-douro-nevogilde"]
 elif dia_semana == 'Thursday':
