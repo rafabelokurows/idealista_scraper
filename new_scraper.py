@@ -35,6 +35,32 @@ import undetected_chromedriver as uc
 import random
 import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+import chromedriver_autoinstaller
+
+chromedriver_autoinstaller.install()
+
+chrome_options = webdriver.ChromeOptions()    
+# Add your options as needed    
+options = [
+  # Define window size here
+    "--window-size=1200,1200",
+    "--ignore-certificate-errors"
+ 
+    "--headless",
+    #"--disable-gpu",
+    #"--window-size=1920,1200",
+    #"--ignore-certificate-errors",
+    #"--disable-extensions",
+    #"--no-sandbox",
+    #"--disable-dev-shm-usage",
+    #'--remote-debugging-port=9222'
+]
+
+for option in options:
+    chrome_options.add_argument(option)
+
+    
+#driver = webdriver.Chrome(options = chrome_options)
 
 
 headers_imoveis = {
@@ -129,7 +155,8 @@ print(f'Bairros: {bairros}')
 #%%
 
 #%%
-browser = uc.Chrome()
+browser = uc.Chrome(options = chrome_options)
+#headless=True,use_subprocess=False
 anuncios = []
 for bairro in bairros:
     print(f'Analisando bairro: {bairro}')
