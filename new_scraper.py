@@ -164,6 +164,7 @@ for bairro in bairros:
     print(bairro)
     while True:  # Run indefinitely until the final page is reached
         url = f"https://www.idealista.pt/comprar-casas/porto/{bairro}/pagina-{i}"
+        print(url)
         browser.get(url)
         
         if i == 1:
